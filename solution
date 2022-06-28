@@ -1,0 +1,38 @@
+function incrementString (strng) {
+  let digitsFinal = [];
+  let endsNumber = false;
+  console.log("strng: " + strng)
+  let length = strng.length
+  console.log("length:" + length)
+  
+  for(let i = 0; i < strng.length; i++){
+    let digit = strng[i]
+    console.log(parseInt(digit))
+    if(parseInt(digit).toString()!=="NaN"){
+      digitsFinal.push(strng[i]);
+      endsNumber = true;
+      console.log("DigitsFinal: " + digitsFinal)
+    } 
+  }
+  if(parseInt(strng[length - 1]) == 0){
+    let digit=strng[length - 1]
+    let array = strng.split("")
+    array[length - 1] = '1';
+    console.log(strng)
+//       console.log(length - 1)
+//     console.log(strng[8])
+    return array.join("")
+  }
+  if(!endsNumber){
+    return strng + "1";
+  } else{
+ digitsFinal = digitsFinal.join("");
+    console.log("DigitsFinal: " + digitsFinal)
+    let final =  parseInt(digitsFinal) + 1
+    strng = strng.replace(digitsFinal, final.toString());
+  
+    console.log("strng: " + strng)
+    return strng;
+    }
+  
+}
